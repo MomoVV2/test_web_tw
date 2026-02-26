@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-50 dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border text-gray-900 dark:text-white py-20 px-6">
+    <footer className="bg-dark-elevated border-t border-dark-border text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,13 +15,13 @@ const Footer = () => {
           className="text-center"
         >
           <motion.h3
-            className="text-4xl md:text-5xl font-light tracking-tight mb-4 text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl font-light tracking-tight mb-4 text-white"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             Eason Wu
           </motion.h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-12 text-lg font-light">
+          <p className="text-gray-400 mb-12 text-lg font-light">
             Visual Designer & Typographer
           </p>
 
@@ -31,7 +31,7 @@ const Footer = () => {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-primary transition-colors tracking-wide uppercase"
+                className="text-sm text-gray-400 hover:text-accent-primary transition-colors tracking-wide uppercase"
                 whileHover={{ y: -2 }}
               >
                 {item}
@@ -50,7 +50,7 @@ const Footer = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-gray-100 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-full text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-accent-primary transition-all duration-300"
+                className="px-6 py-3 bg-dark-surface border border-dark-border rounded-full text-sm text-gray-400 hover:text-whitetext-white hover:border-accent-primary transition-all duration-300"
                 whileHover={{ y: -5, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-gray-200 dark:border-dark-border pt-8">
+          <div className="border-t border-dark-border pt-8">
             <motion.p
               className="text-gray-500 text-sm font-light"
               initial={{ opacity: 0 }}
@@ -68,8 +68,8 @@ const Footer = () => {
               transition={{ delay: 0.2 }}
             >
               © {currentYear} Eason Wu. Crafted in{' '}
-              <span className="text-accent-primary">Taipei</span> ·{' '}
-              <span className="text-accent-secondary">Taiwan</span>
+              <span className="text-accent-primary">Hamburg</span> ·{' '}
+              <span className="text-accent-secondary">Germany</span>
             </motion.p>
           </div>
         </motion.div>

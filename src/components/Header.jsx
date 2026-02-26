@@ -23,7 +23,7 @@ const Header = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-dark-bg/80 backdrop-blur-xl border-b border-gray-200 dark:border-dark-border'
+          ? 'bg-dark-surface/80/80 backdrop-blur-xl border-b border-dark-border'
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -35,7 +35,7 @@ const Header = () => {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-xl font-light tracking-tight text-gray-900 dark:text-white hover:text-accent-primary dark:hover:text-accent-primary transition-colors duration-300"
+            className="text-xl font-light tracking-tight text-white hover:text-accent-primarytext-accent-primary transition-colors duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -48,7 +48,7 @@ const Header = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors relative group tracking-wide"
+                className="text-sm text-gray-400 hover:text-whitetext-white transition-colors relative group tracking-wide"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -67,7 +67,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="md:hidden p-2 text-gray-400 hover:text-whitetext-white transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             whileTap={{ scale: 0.9 }}
@@ -94,7 +94,7 @@ const Header = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden mt-6 pb-4 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-xl"
+              className="md:hidden mt-6 pb-4 bg-dark-surface/95/95 backdrop-blur-xl"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -104,7 +104,7 @@ const Header = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="block py-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="block py-3 text-gray-400 hover:text-whitetext-white transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

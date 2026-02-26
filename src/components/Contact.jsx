@@ -71,20 +71,20 @@ const Contact = () => {
           className="mb-24 text-center"
         >
           <motion.p
-            className="text-xs uppercase tracking-[0.4em] text-gray-500 dark:text-gray-500 mb-6 font-light"
+            className="text-xs uppercase tracking-[0.4em] text-gray-500 mb-6 font-light"
             initial={{ opacity: 0, y: -20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
             Get in Touch
           </motion.p>
-          <h2 className="text-6xl md:text-8xl font-light tracking-tighter text-gray-900 dark:text-white mb-6">
+          <h2 className="text-6xl md:text-8xl font-light tracking-tighter text-white mb-6">
             Let's Create{' '}
             <span className="bg-gradient-to-r from-accent-secondary to-accent-tertiary bg-clip-text text-transparent">
               Together
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Have a project in mind? I'd love to hear about it.
           </p>
         </motion.div>
@@ -106,21 +106,21 @@ const Contact = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="group block p-8 bg-white dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-2xl hover:border-accent-primary transition-all duration-300 shadow-sm dark:shadow-none"
+                className="group block p-8 bg-dark-surface border border-dark-border rounded-2xl hover:border-accent-primary transition-all duration-300 shadow-sm"
                 whileHover={{ x: 10, scale: 1.02 }}
               >
                 <div className="flex items-start gap-6">
                   <div className="text-3xl text-accent-primary">{method.icon}</div>
                   <div className="flex-1">
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 mb-3">
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-3">
                       {method.label}
                     </p>
-                    <p className="text-xl text-gray-900 dark:text-white group-hover:text-accent-primary transition-colors duration-300">
+                    <p className="text-xl text-white group-hover:text-accent-primary transition-colors duration-300">
                       {method.value}
                     </p>
                   </div>
                   <motion.svg
-                    className="w-6 h-6 text-gray-400 dark:text-gray-600 group-hover:text-accent-primary transition-colors duration-300"
+                    className="w-6 h-6 text-gray-400 dark:text-gray-400 group-hover:text-accent-primary transition-colors duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -141,23 +141,19 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col justify-center"
           >
-            <div className="bg-white dark:bg-dark-elevated border border-gray-200 dark:border-dark-border rounded-3xl p-10 relative overflow-hidden shadow-sm dark:shadow-none">
-              {/* Decorative gradient */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-accent-primary/5 dark:bg-accent-primary/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-secondary/5 dark:bg-accent-secondary/10 rounded-full blur-3xl" />
-
-              <div className="relative z-10">
+            <div className="bg-dark-elevated border border-dark-border rounded-3xl p-10 shadow-sm">
+              <div className="relative">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <p className="text-xs uppercase tracking-[0.2em] text-gray-600 dark:text-gray-400">Status</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Status</p>
                 </div>
 
-                <h3 className="text-4xl font-light text-gray-900 dark:text-white mb-6">
+                <h3 className="text-4xl font-light text-white mb-6">
                   Available for{' '}
                   <span className="text-accent-primary">freelance</span>
                 </h3>
 
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                <p className="text-gray-400 leading-relaxed mb-8">
                   Open to typography, visual identity, and editorial design projects.
                   Currently based in Taipei and available for remote collaboration worldwide.
                 </p>
@@ -166,7 +162,7 @@ const Contact = () => {
                   {['Typography', 'Branding', 'Editorial', 'Digital'].map((tag, index) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-gray-100 dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-full text-sm text-gray-700 dark:text-gray-400"
+                      className="px-4 py-2 bg-dark-surface border border-dark-border rounded-full text-sm text-gray-300"
                     >
                       {tag}
                     </span>
@@ -184,7 +180,7 @@ const Contact = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 mb-8 font-light">
+          <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-8 font-light">
             Also find me on
           </p>
           <div className="flex items-center justify-center gap-6">
@@ -194,11 +190,11 @@ const Contact = () => {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 flex items-center justify-center bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-full hover:border-accent-primary transition-all duration-300"
+                className="w-14 h-14 flex items-center justify-center bg-dark-elevated border border-dark-border rounded-full hover:border-accent-primary transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-400 hover:text-accent-primary dark:hover:text-accent-primary transition-colors">
+                <span className="text-sm font-medium text-gray-300 hover:text-accent-primarytext-accent-primary transition-colors">
                   {social.icon}
                 </span>
               </motion.a>

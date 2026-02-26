@@ -7,93 +7,207 @@ const About = () => {
 
   const expertise = [
     {
+      icon: '✤',
       title: 'Typography',
       description: 'Type design & editorial layouts',
     },
     {
+      icon: '◉',
       title: 'Visual Identity',
       description: 'Brand systems & guidelines',
     },
     {
+      icon: '◇',
       title: 'Editorial Design',
       description: 'Print & digital publications',
     },
     {
+      icon: '△',
       title: 'Digital Design',
       description: 'Web & interactive experiences',
     },
   ]
 
+  const timeline = [
+    {
+      year: '2024',
+      title: 'ELISAVA Barcelona',
+      role: 'Visual Design Student',
+    },
+    {
+      year: '2023',
+      title: 'Garmin',
+      role: 'UI Designer · Taiwan',
+    },
+    {
+      year: '2022',
+      title: 'Freelance',
+      role: 'Visual Designer',
+    },
+  ]
+
   return (
-    <section id="about" ref={ref} className="py-32 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" ref={ref} className="py-32 px-6 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-tertiary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-primary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-24"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-4">About</p>
-          <h2 className="text-5xl md:text-7xl font-light tracking-tight mb-8">
-            Creating <span className="text-gray-300">visual</span> narratives
+          <motion.p
+            className="text-xs uppercase tracking-[0.4em] text-gray-500 mb-6 font-light"
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            About
+          </motion.p>
+          <h2 className="text-6xl md:text-8xl font-light tracking-tighter text-white">
+            Crafting{' '}
+            <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+              Visual
+            </span>{' '}
+            Stories
           </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid lg:grid-cols-2 gap-16 mb-20"
-        >
-          <div className="space-y-6">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              I'm a freelance visual designer based in Barcelona, Spain, specializing in
-              typography-driven design and visual identity systems.
-            </p>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              My work sits at the intersection of traditional typography and contemporary digital
-              design, crafting visual experiences that communicate with clarity and purpose.
-            </p>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              From custom typeface development to comprehensive brand identities, I approach each
-              project with meticulous attention to detail and a deep appreciation for the craft of
-              visual design.
-            </p>
-          </div>
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-20 mb-24">
+          {/* Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div className="space-y-6">
+              <p className="text-2xl text-gray-300 leading-relaxed font-light">
+                I'm a Taiwanese visual designer currently based in{' '}
+                <span className="text-white font-normal">Barcelona</span>, where I'm pursuing my
+                passion for typography at{' '}
+                <span className="text-accent-primary">ELISAVA</span>.
+              </p>
+              <p className="text-xl text-gray-400 leading-relaxed font-light">
+                My work sits at the intersection of traditional typography and contemporary digital
+                design, crafting visual experiences that communicate with clarity and emotional
+                resonance.
+              </p>
+              <p className="text-xl text-gray-400 leading-relaxed font-light">
+                Previously at Garmin in Taiwan, I now focus on freelance projects that push the
+                boundaries of visual identity and typographic expression.
+              </p>
+            </div>
 
-          <div className="space-y-8">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Location</p>
-              <p className="text-lg text-gray-900">Barcelona, Spain</p>
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-dark-border">
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <p className="text-4xl font-light text-white mb-2">3+</p>
+                <p className="text-sm text-gray-500 uppercase tracking-wide">Years Exp</p>
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <p className="text-4xl font-light text-white mb-2">20+</p>
+                <p className="text-sm text-gray-500 uppercase tracking-wide">Projects</p>
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <p className="text-4xl font-light text-white mb-2">2</p>
+                <p className="text-sm text-gray-500 uppercase tracking-wide">Cities</p>
+              </motion.div>
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Availability</p>
-              <p className="text-lg text-gray-900">Open for freelance projects</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Focus</p>
-              <p className="text-lg text-gray-900">Typography & Visual Identity</p>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
+          {/* Timeline */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="space-y-8"
+          >
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-8 font-light">
+                Journey
+              </p>
+              <div className="space-y-6">
+                {timeline.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    className="group pl-6 border-l border-dark-border hover:border-accent-primary transition-colors duration-300"
+                  >
+                    <span className="text-sm text-accent-primary font-mono mb-2 block">
+                      {item.year}
+                    </span>
+                    <h4 className="text-xl text-white font-light mb-1 group-hover:text-accent-primary transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-gray-500">{item.role}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Status Card */}
+            <motion.div
+              className="bg-dark-elevated border border-dark-border rounded-2xl p-8"
+              whileHover={{ scale: 1.02, borderColor: 'rgba(99, 102, 241, 0.3)' }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <p className="text-sm text-gray-400 uppercase tracking-wide">Status</p>
+              </div>
+              <p className="text-2xl text-white font-light mb-2">
+                Available for freelance
+              </p>
+              <p className="text-sm text-gray-500">
+                Open to typography, visual identity, and editorial design projects
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Expertise Grid */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-8">Expertise</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-gray-500 mb-12 font-light">
+            Expertise
+          </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {expertise.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="border-t border-gray-200 pt-6"
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                className="group p-8 bg-dark-surface border border-dark-border rounded-2xl hover:border-accent-primary/30 transition-all duration-300"
+                whileHover={{ y: -8 }}
               >
-                <h3 className="text-lg font-medium text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.description}</p>
+                <div className="text-4xl mb-6 text-accent-primary">{item.icon}</div>
+                <h3 className="text-xl text-white font-light mb-3 group-hover:text-accent-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>

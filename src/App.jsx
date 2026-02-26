@@ -6,6 +6,7 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import P5Background from './components/P5Background'
 
 // Lazy load sections not visible above the fold
 const LazyAbout = lazy(() => import('./components/About'))
@@ -14,7 +15,8 @@ const LazyContact = lazy(() => import('./components/Contact'))
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-dark-bg text-white">
+      <P5Background />
       <Header />
       <main>
         <Hero />

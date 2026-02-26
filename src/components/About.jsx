@@ -63,14 +63,14 @@ const About = () => {
           className="mb-24"
         >
           <motion.p
-            className="text-xs uppercase tracking-[0.4em] text-gray-500 mb-6 font-light"
+            className="text-xs uppercase tracking-[0.4em] text-gray-500 dark:text-gray-500 mb-6 font-light"
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
             About
           </motion.p>
-          <h2 className="text-6xl md:text-8xl font-light tracking-tighter text-white">
+          <h2 className="text-6xl md:text-8xl font-light tracking-tighter text-gray-900 dark:text-white">
             Crafting{' '}
             <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
               Visual
@@ -89,45 +89,44 @@ const About = () => {
             className="space-y-8"
           >
             <div className="space-y-6">
-              <p className="text-2xl text-gray-300 leading-relaxed font-light">
-                I'm a Taiwanese visual designer currently based in{' '}
-                <span className="text-white font-normal">Barcelona</span>, where I'm pursuing my
-                passion for typography at{' '}
-                <span className="text-accent-primary">ELISAVA</span>.
+              <p className="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                I'm a Taiwanese visual designer based in{' '}
+                <span className="text-gray-900 dark:text-white font-normal">Taipei</span>. I studied visual design at{' '}
+                <span className="text-accent-primary">ELISAVA Barcelona</span> and previously worked at Garmin in Taiwan.
               </p>
-              <p className="text-xl text-gray-400 leading-relaxed font-light">
+              <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-light">
                 My work sits at the intersection of traditional typography and contemporary digital
                 design, crafting visual experiences that communicate with clarity and emotional
                 resonance.
               </p>
-              <p className="text-xl text-gray-400 leading-relaxed font-light">
-                Previously at Garmin in Taiwan, I now focus on freelance projects that push the
-                boundaries of visual identity and typographic expression.
+              <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                My practice spans custom typeface development, comprehensive brand identities, and editorial design projects.
+                I approach each project with meticulous attention to detail and a deep appreciation for the craft.
               </p>
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-dark-border">
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200 dark:border-dark-border">
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-4xl font-light text-white mb-2">3+</p>
-                <p className="text-sm text-gray-500 uppercase tracking-wide">Years Exp</p>
+                <p className="text-4xl font-light text-gray-900 dark:text-white mb-2">3+</p>
+                <p className="text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide">Years Exp</p>
               </motion.div>
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-4xl font-light text-white mb-2">20+</p>
-                <p className="text-sm text-gray-500 uppercase tracking-wide">Projects</p>
+                <p className="text-4xl font-light text-gray-900 dark:text-white mb-2">20+</p>
+                <p className="text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide">Projects</p>
               </motion.div>
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-4xl font-light text-white mb-2">2</p>
-                <p className="text-sm text-gray-500 uppercase tracking-wide">Cities</p>
+                <p className="text-4xl font-light text-gray-900 dark:text-white mb-2">2</p>
+                <p className="text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide">Cities</p>
               </motion.div>
             </div>
           </motion.div>
@@ -140,7 +139,7 @@ const About = () => {
             className="space-y-8"
           >
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-8 font-light">
+              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 mb-8 font-light">
                 Journey
               </p>
               <div className="space-y-6">
@@ -150,15 +149,15 @@ const About = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="group pl-6 border-l border-dark-border hover:border-accent-primary transition-colors duration-300"
+                    className="group pl-6 border-l border-gray-200 dark:border-dark-border hover:border-accent-primary transition-colors duration-300"
                   >
                     <span className="text-sm text-accent-primary font-mono mb-2 block">
                       {item.year}
                     </span>
-                    <h4 className="text-xl text-white font-light mb-1 group-hover:text-accent-primary transition-colors">
+                    <h4 className="text-xl text-gray-900 dark:text-white font-light mb-1 group-hover:text-accent-primary transition-colors">
                       {item.title}
                     </h4>
-                    <p className="text-sm text-gray-500">{item.role}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500">{item.role}</p>
                   </motion.div>
                 ))}
               </div>
@@ -166,18 +165,18 @@ const About = () => {
 
             {/* Status Card */}
             <motion.div
-              className="bg-dark-elevated border border-dark-border rounded-2xl p-8"
+              className="bg-dark-elevated border border-gray-200 dark:border-dark-border rounded-2xl p-8"
               whileHover={{ scale: 1.02, borderColor: 'rgba(99, 102, 241, 0.3)' }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <p className="text-sm text-gray-400 uppercase tracking-wide">Status</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide">Status</p>
               </div>
-              <p className="text-2xl text-white font-light mb-2">
+              <p className="text-2xl text-gray-900 dark:text-white font-light mb-2">
                 Available for freelance
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-500">
                 Open to typography, visual identity, and editorial design projects
               </p>
             </motion.div>
@@ -190,7 +189,7 @@ const About = () => {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <p className="text-xs uppercase tracking-[0.4em] text-gray-500 mb-12 font-light">
+          <p className="text-xs uppercase tracking-[0.4em] text-gray-500 dark:text-gray-500 mb-12 font-light">
             Expertise
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -200,14 +199,14 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                className="group p-8 bg-dark-surface border border-dark-border rounded-2xl hover:border-accent-primary/30 transition-all duration-300"
+                className="group p-8 bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-2xl hover:border-accent-primary/30 transition-all duration-300"
                 whileHover={{ y: -8 }}
               >
                 <div className="text-4xl mb-6 text-accent-primary">{item.icon}</div>
-                <h3 className="text-xl text-white font-light mb-3 group-hover:text-accent-primary transition-colors">
+                <h3 className="text-xl text-gray-900 dark:text-white font-light mb-3 group-hover:text-accent-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-500 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>

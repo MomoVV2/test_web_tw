@@ -2,86 +2,117 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const Hero = () => {
+  const text = "Eason Wu"
+  const role = "Visual Designer"
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+    }),
+  }
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  }
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="min-h-screen flex items-center justify-center px-6 relative">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          className="space-y-2"
+          variants={container}
+          initial="hidden"
+          animate="visible"
         >
-          <motion.h1
-            className="text-6xl md:text-8xl font-bold text-gray-900 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Hi, I'm Eason Wu
-          </motion.h1>
-
-          <motion.p
-            className="text-2xl md:text-3xl text-gray-600 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Product Designer & Developer
-          </motion.p>
-
-          <motion.p
-            className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            I create beautiful, functional digital experiences that make a difference.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <motion.a
-              href="#work"
-              className="px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          <motion.div className="overflow-hidden">
+            <motion.p
+              className="text-sm md:text-base tracking-[0.3em] uppercase text-gray-400 mb-8"
+              variants={child}
             >
-              View My Work
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="px-8 py-3 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-900 hover:text-white transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get in Touch
-            </motion.a>
+              Barcelona · Visual Design
+            </motion.p>
           </motion.div>
-        </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
+          <motion.div className="overflow-hidden">
+            <motion.h1
+              className="text-[12vw] md:text-[10vw] font-light leading-[0.85] tracking-tighter text-gray-900"
+              variants={child}
+            >
+              {text.split("").map((letter, index) => (
+                <motion.span
+                  key={index}
+                  className="inline-block"
+                  whileHover={{ y: -10, rotation: 2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </motion.h1>
+          </motion.div>
+
+          <motion.div className="overflow-hidden">
+            <motion.h2
+              className="text-[8vw] md:text-[6vw] font-thin text-gray-300 leading-none"
+              variants={child}
+            >
+              {role}
+            </motion.h2>
+          </motion.div>
+
           <motion.div
-            className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            className="flex items-center gap-8 mt-16 pt-8 border-t border-gray-200"
+            variants={child}
           >
-            <motion.div
-              className="w-1 h-2 bg-gray-400 rounded-full mt-2"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
+            <div>
+              <p className="text-xs uppercase tracking-wider text-gray-400 mb-1">Typography</p>
+              <p className="text-sm text-gray-900">Editorial Design</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-gray-400 mb-1">Identity</p>
+              <p className="text-sm text-gray-900">Digital Design</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-gray-400 mb-1">Based in</p>
+              <p className="text-sm text-gray-900">Barcelona, Spain</p>
+            </div>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Side indicator */}
+      <motion.div
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 hidden md:block"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+      >
+        <motion.p
+          className="text-xs vertical-rl tracking-widest text-gray-400"
+          style={{ writingMode: "vertical-rl" }}
+        >
+          SCROLL TO EXPLORE
+        </motion.p>
+      </motion.div>
     </section>
   )
 }

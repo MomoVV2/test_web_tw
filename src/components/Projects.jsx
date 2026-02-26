@@ -3,106 +3,132 @@ import { motion, useInView } from 'framer-motion'
 
 const Projects = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const projects = [
     {
-      title: 'Project Alpha',
-      description: 'A modern web application built with React and TypeScript',
-      tags: ['React', 'TypeScript', 'Tailwind'],
-      link: '#',
-      gradient: 'from-blue-500 to-purple-600',
+      number: '01',
+      title: 'TOKYO TDC',
+      category: 'Typography',
+      year: '2024',
+      description: 'Annual typography design competition',
+      link: 'https://www.behance.net/j133244c646',
     },
     {
-      title: 'Project Beta',
-      description: 'E-commerce platform with real-time inventory management',
-      tags: ['Next.js', 'Node.js', 'PostgreSQL'],
-      link: '#',
-      gradient: 'from-green-500 to-teal-600',
+      number: '02',
+      title: 'Turquoise Font',
+      category: 'Type Design',
+      year: '2024',
+      description: 'Custom typeface development',
+      link: 'https://www.behance.net/j133244c646',
     },
     {
-      title: 'Project Gamma',
-      description: 'AI-powered analytics dashboard for business intelligence',
-      tags: ['Python', 'TensorFlow', 'D3.js'],
-      link: '#',
-      gradient: 'from-orange-500 to-red-600',
+      number: '03',
+      title: '2025 Typo',
+      category: 'Editorial',
+      year: '2024',
+      description: 'Typography-forward editorial design',
+      link: 'https://www.behance.net/j133244c646',
+    },
+    {
+      number: '04',
+      title: 'Visual Identity',
+      category: 'Branding',
+      year: '2023',
+      description: 'Brand identity system',
+      link: 'https://www.behance.net/j133244c646',
+    },
+    {
+      number: '05',
+      title: 'Global Architecture',
+      category: 'Visual Design',
+      year: '2023',
+      description: 'Symbol-based identity system',
+      link: 'https://www.behance.net/j133244c646',
+    },
+    {
+      number: '06',
+      title: 'Coding VIS',
+      category: 'Digital',
+      year: '2023',
+      description: 'Computational visual design',
+      link: 'https://www.behance.net/j133244c646',
     },
   ]
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
   return (
-    <section id="work" ref={ref} className="py-24 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" ref={ref} className="py-32 px-6">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8 }}
+          className="mb-24"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Selected Work
+          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-4">Selected Work</p>
+          <h2 className="text-5xl md:text-7xl font-light tracking-tight">
+            Design <span className="text-gray-300">Projects</span>
           </h2>
-          <p className="text-xl text-gray-600">
-            Here are some projects I've worked on recently
-          </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="space-y-0">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={index}
-              variants={item}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 60 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group block border-t border-gray-200 py-12 hover:bg-gray-50 transition-colors -mx-6 px-6"
+              whileHover={{ x: 10 }}
             >
-              <motion.a
-                href={project.link}
-                className="block h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                  <span className="text-white text-6xl font-bold opacity-20">
-                    {project.title[0]}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <div className="grid grid-cols-12 gap-4 items-center">
+                <motion.span
+                  className="col-span-1 text-xs text-gray-400 font-mono"
+                  initial={{ opacity: 0.5 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  {project.number}
+                </motion.span>
+
+                <div className="col-span-12 md:col-span-5">
+                  <h3 className="text-3xl md:text-4xl font-light tracking-tight group-hover:tracking-tight transition-all">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-              </motion.a>
-            </motion.div>
+
+                <div className="col-span-12 md:col-span-4 flex items-center gap-4">
+                  <span className="text-sm text-gray-500">{project.category}</span>
+                  <span className="text-xs text-gray-300">·</span>
+                  <span className="text-sm text-gray-400">{project.year}</span>
+                </div>
+
+                <div className="col-span-12 md:col-span-2 md:text-right">
+                  <p className="text-sm text-gray-400">{project.description}</p>
+                </div>
+              </div>
+            </motion.a>
           ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-24 text-center"
+        >
+          <motion.a
+            href="https://www.behance.net/j133244c646"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-gray-900 hover:text-gray-600 transition-colors"
+            whileHover={{ gap: '12px' }}
+          >
+            View All Projects
+            <span className="text-lg">→</span>
+          </motion.a>
         </motion.div>
       </div>
     </section>

@@ -1,0 +1,9 @@
+services:
+  hi-from-hamburg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hi-from-hamburg
+    ports:
+      - "${HAMBURG_PORT:-39081}:80"
+    restart: unless-stopped

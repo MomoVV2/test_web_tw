@@ -1,0 +1,11 @@
+# Docker Compose file for UGREEN NAS deployment
+# This pulls the image from Docker Hub instead of building locally
+
+services:
+  hi-from-hamburg:
+    # Docker Hub image
+    image: shiromovv/hi-from-hamburg:latest
+    container_name: hi-from-hamburg
+    ports:
+      - "${HAMBURG_PORT:-39081}:80"
+    restart: unless-stopped
